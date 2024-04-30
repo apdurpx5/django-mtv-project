@@ -1,0 +1,42 @@
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo.png" alt="" style="width: 158px;">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="{% url "home" %}" class="active">Home</a></li>
+                      {% comment %} <li><a href="shop.html">Our Shop</a></li> {% endcomment %}
+                      {% comment %} <li><a href="product-details.html">Product Details</a></li> {% endcomment %}
+                      {% comment %} <li><a href="contact.html">Contact Us</a></li> {% endcomment %}
+                        {% if user.is_authenticated %}
+                         {% if user_role_doctor %}
+                            <li><a href="{% url "addCampaign" %}">Add Campaign</a></li>
+                            
+                            {%endif%}
+                        {%endif%} 
+                            
+                      <li><a href="{% url "all_dose" %}">All Dose</a></li>
+                      {% if user.is_authenticated %}
+                        <li><a href="{% url "profile" %}">Profile</a></li>
+                        <li><a href="{% url "my_logout" %}">Sign Out</a></li>
+                      {% else %}
+                      <li><a href="{% url "register" %}">Sign Up</a></li>
+                      <li><a href="{% url "login" %}">Sign In</a></li>
+                      {% endif %}
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
